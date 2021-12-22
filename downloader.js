@@ -7,10 +7,10 @@ export async function main(ns) {
 const baseURL = "https://raw.githubusercontent.com/tartas1995/bitburner/master/"
 
 const files = [
-    "init.js",
     "config.js",
-    "store.js",
+    "init.js",
     "scan.js",
+    "store.js",
 ]
 
 async function download(ns, file) {
