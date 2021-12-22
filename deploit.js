@@ -23,5 +23,5 @@ function deploit(ns, target) {
     for (let file of files) {
         ns.scp(`/${baseFolder}/${file}`, target);
     }
-    ns.exec("hack.js", target);
+    ns.exec(`/${baseFolder}/hack.js`, target);
 }
