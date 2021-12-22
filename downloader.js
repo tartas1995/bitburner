@@ -7,7 +7,9 @@ export async function main(ns) {
 const baseURL = "https://raw.githubusercontent.com/tartas1995/bitburner/master/"
 
 const files = [
+    "client/hack.js",
     "config.js",
+    "deploit.js",
     "init.js",
     "scan.js",
     "store.js",
