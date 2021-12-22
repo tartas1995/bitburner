@@ -1,6 +1,9 @@
-import { config } from "./config.js"
+import { initConfig } from "./config.js";
+import { scan } from "./scan.js";
+import { save } from "./save.js";
 
 export async function main(ns) {
-    ns.print("test")
-    ns.print(config.scanDepth)
+    ns.tprint("init Config");
+    initConfig();
+    save("knownNodes", scan(ns));
 }

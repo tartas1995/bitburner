@@ -1,4 +1,4 @@
-import { save, isLoadable, isLoadable } from "./store.js";
+import { save, isLoadable, load } from "./store.js";
 
 const defaultConfig = {
     scanDepth: 2
@@ -8,10 +8,14 @@ const typeConfig = {
     scanDepth: "number"
 }
 
-export function init() {
+function init() {
     if (!isLoadable("config")) {
         save("config", defaultConfig);
     }
+}
+
+function getConfig() {
+    return load("config")
 }
 
 function convertValue(key, value) {
@@ -24,14 +28,14 @@ function convertValue(key, value) {
     }
 }
 
-export function main(ns) {
+function main(ns) {
     if (!isLoadable("config")) {
         save("config", defaultConfig);
     }
     if (ns.args.length > 0) {
         let config = load("config");
         const overwrite = {};
-        for (let arg of args) {
+        for (let arg of ns.args) {
             const value = arg.split("=")
             overwrite[value[0]] = convertValue(value[0],value[1])
         }
@@ -40,4 +44,10 @@ export function main(ns) {
     } else {
         ns.tprint(load("config"))
     }
+}
+
+export {
+    main,
+    getConfig,
+    init as initConfig
 }
