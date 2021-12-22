@@ -9,6 +9,8 @@ const baseURL = "https://raw.githubusercontent.com/tartas1995/bitburner/master/"
 const files = [
     "init.js",
     "config.js",
+    "store.js",
+    "scan.js",
 ]
 
 async function download(ns, file) {
