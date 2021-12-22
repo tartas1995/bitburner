@@ -1,6 +1,6 @@
 export async function main(ns) {
     for (let file of files) {
-        download(ns, file)
+        await download(ns, file)
     }
 }
 
@@ -11,7 +11,7 @@ const files = [
     "config.js",
 ]
 
-function download(ns, file) {
+async function download(ns, file) {
     ns.tprint(`kill ${file}`)
     await ns.scriptKill(file ,ns.getHostname());
     ns.tprint(`remove ${file}`)
